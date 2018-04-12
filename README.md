@@ -3,8 +3,6 @@
 Out-of-box consumer for RingCentral WebHook, mainly for testing and troubleshooting purpose.
 
 
-
-
 ## Setup
 
 ```
@@ -33,3 +31,9 @@ yarn dist:dev
 ```
 yarn dist
 ```
+
+
+## Todo
+
+- Replace webpack with Parcel
+- Replace babel with tsc

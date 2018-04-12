@@ -6,7 +6,7 @@
   "description": "Out-of-box consumer for RingCentral WebHook, mainly for testing and troubleshooting purpose.",
   "main": "build/electron.bundle.js",
   "scripts": {
-    "upgrade": "yarn-upgrade-all",
+    "upgrade": "yarn-upgrade-all && yarn remove webpack && yarn add --dev webpack@3.11.0 && yarn remove babel-preset-ts-node6-bluebird && yarn add --dev babel-preset-ts-node6-bluebird@1.0.1",
     "build": "webpack --progress --colors",
     "build:watch": "yarn build --watch",
     "release": "yarn build -p",
@@ -17,25 +17,25 @@
   "repository": "git@github.com:tylerlong/ringcentral-webhook-consumer.git",
   "author": {
     "name": "Tyler Liu",
-    "email": "tyler.liu@@ringcentral.com"
+    "email": "tyler.liu@ringcentral.com"
   },
   "dependencies": {
     "electron-log": "^2.2.14",
-    "electron-updater": "^2.18.2"
+    "electron-updater": "^2.21.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "7.1.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-ts-node6-bluebird": "^1.0.1",
-    "css-loader": "^0.28.8",
-    "electron": "^1.7.10",
-    "electron-builder": "^19.52.1",
+    "babel-preset-ts-node6-bluebird": "1.0.1",
+    "css-loader": "^0.28.11",
+    "electron": "^1.8.4",
+    "electron-builder": "^20.8.1",
     "extract-text-webpack-plugin": "^3.0.2",
-    "standard": "^10.0.3",
-    "style-loader": "^0.19.1",
-    "webpack": "^3.10.0",
+    "standard": "^11.0.1",
+    "style-loader": "^0.20.3",
+    "webpack": "3.11.0",
     "yarn-upgrade-all": "^0.3.0"
   },
   "build": {

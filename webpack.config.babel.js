@@ -35,7 +35,7 @@ const webConfig = {
 }
 
 const electronConfig = {
-  target: 'electron',
+  target: 'electron-main',
   entry: {
     electron: ['babel-polyfill', './src/electron/index.js'],
     preload: ['babel-polyfill', './src/electron/preload.js']
