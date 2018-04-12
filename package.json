@@ -1,6 +1,6 @@
 {
   "name": "ringcentral-webhook-consumer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "license": "MIT",
   "description": "Out-of-box consumer for RingCentral WebHook, mainly for testing and troubleshooting purpose.",
@@ -11,7 +11,7 @@
     "build:watch": "yarn build --watch",
     "release": "yarn build -p",
     "start": "electron .",
-    "dist": "yarn release && rm -rf dist && electron-builder build --mac --win --linux --publish always",
+    "dist": "yarn build && rm -rf dist && electron-builder build --mac --win --linux --publish always",
     "dist:dev": "rm -rf dist && electron-builder build --mac --win --linux",
     "download": "node -r babel-register -r babel-polyfill build/downloader.js"
   },

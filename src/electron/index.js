@@ -27,9 +27,7 @@ const createWindow = () => {
   browserWindow.on('closed', () => {
     browserWindow = null
   })
-  if (process.env.NODE_ENV !== 'production') {
-    browserWindow.toggleDevTools()
-  }
+  browserWindow.toggleDevTools()
   browserWindow.webContents.on('new-window', (event, url) => {
     event.preventDefault()
     shell.openExternal(url) // download in user's default browser

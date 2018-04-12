@@ -2,6 +2,15 @@
 
 Out-of-box consumer for RingCentral WebHook, mainly for testing and troubleshooting purpose.
 
+Once you start the app, it will show you an WebHook url, which you can use to setup the subscription.
+
+Then you just watch the devtools console to monitor the incoming notifications!
+
+
+# [Download pre-built installers](https://github.com/tylerlong/ringcentral-webhook-consumer/releases)
+
+
+![](./screenshot.png)
 
 ## Setup
 
@@ -37,3 +46,4 @@ yarn dist
 
 - Replace webpack with Parcel
 - Replace babel with tsc
+- fix `webpack -p` uglifyJS issue
