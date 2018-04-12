@@ -1,6 +1,9 @@
 node_modules/
 *.bundle.*
 dist/
+build/darwin/
+build/win32/
+build/linux/
 
 # misc
 .DS_Store
