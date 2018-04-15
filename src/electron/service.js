@@ -16,7 +16,8 @@ export const startService = async (webhookUriCallback) => {
       res.send('response from webhook')
     })
     app.post('/webhook', async (req, res) => {
-      console.log(req)
+      console.log('Full message:', req)
+      console.log('message body:', (req.body.body || {}).text)
       res.header('validation-token', req.header('validation-token'))
       res.send('response from webhook')
     })
