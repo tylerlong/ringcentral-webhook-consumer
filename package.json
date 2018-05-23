@@ -23,6 +23,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "detect-port": "^1.2.2",
     "electron-log": "^2.2.14",
     "electron-updater": "^2.21.10",
