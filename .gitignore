@@ -1,9 +1,9 @@
 node_modules/
 *.bundle.*
 dist/
-build/darwin/
-build/win32/
-build/linux/
+build/darwin/ngrok
+build/win32/ngrok.exe
+build/linux/ngrok
 .secret
 
 # misc
