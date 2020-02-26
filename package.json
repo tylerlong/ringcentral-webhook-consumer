@@ -1,12 +1,11 @@
 {
   "name": "ringcentral-webhook-consumer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "license": "MIT",
   "description": "Out-of-box consumer for RingCentral WebHook, mainly for testing and troubleshooting purpose.",
   "main": "build/electron.bundle.js",
   "scripts": {
-    "upgrade": "yarn-upgrade-all && yarn remove extract-text-webpack-plugin && yarn add --dev extract-text-webpack-plugin@next",
     "build": "webpack --progress --colors",
     "build:watch": "yarn build --watch",
     "release": "yarn build -p",
