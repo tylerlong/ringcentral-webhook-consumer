@@ -39,8 +39,8 @@ const electronConfig = {
   mode: 'production',
   target: 'electron-main',
   entry: {
-    electron: ['babel-polyfill', './src/electron/index.js'],
-    preload: ['babel-polyfill', './src/electron/preload.js']
+    electron: ['./src/electron/index.js'],
+    preload: ['./src/electron/preload.js']
   },
   output: {
     filename: '[name].bundle.js',
