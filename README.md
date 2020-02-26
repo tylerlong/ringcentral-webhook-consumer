@@ -16,7 +16,6 @@ Then you just watch the devtools console to monitor the incoming notifications!
 
 ```
 yarn install
-yarn run upgrade
 ```
 
 
@@ -40,10 +39,3 @@ yarn dist:dev
 ```
 yarn dist
 ```
-
-
-## Todo
-
-- Replace webpack with Parcel
-- Replace babel with tsc
-- fix `webpack -p` uglifyJS issue
