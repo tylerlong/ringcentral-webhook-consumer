@@ -1,5 +1,4 @@
 import path from 'path'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const webConfig = {
   mode: 'production',
@@ -14,13 +13,6 @@ const webConfig = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -29,9 +21,6 @@ const webConfig = {
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('[name].bundle.css')
-  ],
   devtool: 'source-map'
 }
 
