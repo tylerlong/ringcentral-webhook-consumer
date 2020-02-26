@@ -2,6 +2,7 @@ import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const webConfig = {
+  mode: 'production',
   target: 'web',
   entry: {
     index: './src/web/index.js'
@@ -35,6 +36,7 @@ const webConfig = {
 }
 
 const electronConfig = {
+  mode: 'production',
   target: 'electron-main',
   entry: {
     electron: ['babel-polyfill', './src/electron/index.js'],
