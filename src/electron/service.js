@@ -15,12 +15,11 @@ export const startService = async (webhookUriCallback) => {
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(cors())
     app.get('/webhook', async (req, res) => {
-      console.log('WebHook calls me!')
-      console.log('GET:', req.url)
+      console.log(new Date(), 'GET:', req.url)
       res.send('response from webhook')
     })
     app.post('/webhook', async (req, res) => {
-      console.log('POST:', req.url)
+      console.log(new Date(), 'POST:', req.url)
       console.log('Full message:', req)
       res.header('validation-token', req.header('validation-token'))
       res.send('response from webhook')
