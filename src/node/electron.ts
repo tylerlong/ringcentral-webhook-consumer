@@ -33,10 +33,11 @@ app.on('browser-window-created', (event, browserWindow) => {
 
 const subprocess = childProcess.spawn('./ngrok', ['http', '6789', '--log=stdout']);
 subprocess.stdout.on('data', (data) => {
-  const matches = data.toString().match(/url=(.+)/);
+  const log = data.toString();
+  console.log(log);
+  const matches = log.match(/url=(.+)/);
   if (matches) {
     const publicUrl = matches[1];
-    console.log('public url:', publicUrl);
     webContents.getAllWebContents().forEach((webContent) => {
       webContent.send(CONSTS.PUBLIC_URL, publicUrl);
     });

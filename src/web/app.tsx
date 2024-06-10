@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, ConfigProvider, Space, Typography, theme } from 'antd';
+import { ConfigProvider, Typography, theme } from 'antd';
 import { auto } from 'manate/react';
 
 import type { Store } from './store';
 import CONSTS from '../constants';
 
-const { Text, Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 const App = (props: { store: Store }) => {
   const { store } = props;
@@ -22,7 +22,7 @@ const App = (props: { store: Store }) => {
   }, []);
   useEffect(() => {
     return global.ipc.on(CONSTS.PUBLIC_URL, (event, payload) => {
-      console.log('public url:', payload);
+      store.publicUrl = payload;
     });
   }, []);
   const render = () => {
@@ -35,24 +35,15 @@ const App = (props: { store: Store }) => {
           },
         }}
       >
-        <Title>Untitled App</Title>
-        <Space>
-          <Button
-            onClick={() => {
-              store.count -= 1;
-            }}
-          >
-            -
-          </Button>
-          <Text>{store.count}</Text>
-          <Button
-            onClick={() => {
-              store.count += 1;
-            }}
-          >
-            +
-          </Button>
-        </Space>
+        <Title>RingCentral WebHook Consumer</Title>
+        {store.publicUrl.length > 0 && (
+          <>
+            <Paragraph>{store.publicUrl}</Paragraph>
+            <Paragraph>
+              <a href="http://localhost:4040">test</a>
+            </Paragraph>
+          </>
+        )}
       </ConfigProvider>
     );
   };
