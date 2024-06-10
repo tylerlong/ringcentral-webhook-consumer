@@ -40,7 +40,9 @@ const App = (props: { store: Store }) => {
           <>
             <Paragraph>{store.publicUrl}</Paragraph>
             <Paragraph>
-              <a href="http://localhost:4040">test</a>
+              <a href="http://localhost:4040" target="_blank">
+                Check traffic
+              </a>
             </Paragraph>
           </>
         )}
