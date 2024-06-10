@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { ConfigProvider, Typography, theme } from 'antd';
+import { ConfigProvider, Spin, Typography, theme } from 'antd';
 import { auto } from 'manate/react';
 
 import type { Store } from './store';
 import CONSTS from '../constants';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const App = (props: { store: Store }) => {
-  const { store } = props;
   const [isDark, setIsDark] = useState(false);
   useEffect(() => {
     const disposer = global.ipc.on(CONSTS.IS_DARK_MODE, (event, isDarkMode) => {
@@ -19,11 +18,6 @@ const App = (props: { store: Store }) => {
     });
     global.ipc.invoke(CONSTS.IS_DARK_MODE);
     return disposer;
-  }, []);
-  useEffect(() => {
-    return global.ipc.on(CONSTS.PUBLIC_URL, (event, payload) => {
-      store.publicUrl = payload;
-    });
   }, []);
   const render = () => {
     return (
@@ -36,16 +30,7 @@ const App = (props: { store: Store }) => {
         }}
       >
         <Title>RingCentral WebHook Consumer</Title>
-        {store.publicUrl.length > 0 && (
-          <>
-            <Paragraph>{store.publicUrl}</Paragraph>
-            <Paragraph>
-              <a href="http://localhost:4040" target="_blank">
-                Check traffic
-              </a>
-            </Paragraph>
-          </>
-        )}
+        <Spin />
       </ConfigProvider>
     );
   };
