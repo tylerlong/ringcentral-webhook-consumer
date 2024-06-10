@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import childProcess from 'child_process';
 
 import createWindow from './create-window';
 import { updateApplicationMenu } from './application-menu';
@@ -26,5 +27,14 @@ app.on('browser-window-created', (event, browserWindow) => {
   if (!app.isPackaged) {
     // for development debugging purpose only
     browserWindow.webContents.openDevTools();
+  }
+});
+
+const subprocess = childProcess.spawn('./ngrok', ['http', '6789', '--log=stdout']);
+subprocess.stdout.on('data', (data) => {
+  const matches = data.toString().match(/url=(.+)/);
+  if (matches) {
+    const publicUrl = matches[1];
+    console.log('public url:', publicUrl);
   }
 });
