@@ -50,10 +50,10 @@ const main = async () => {
       webApp.use(bodyParser.json());
       webApp.use(bodyParser.urlencoded({ extended: true }));
       webApp.use(cors());
-      webApp.get('/webhook', async (req, res) => {
+      webApp.get('/', async (req, res) => {
         res.send('response from webhook');
       });
-      webApp.post('/webhook', async (req, res) => {
+      webApp.post('/', async (req, res) => {
         res.header('validation-token', req.header('validation-token'));
         res.send('response from webhook');
       });
