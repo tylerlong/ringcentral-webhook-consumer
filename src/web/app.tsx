@@ -20,6 +20,11 @@ const App = (props: { store: Store }) => {
     global.ipc.invoke(CONSTS.IS_DARK_MODE);
     return disposer;
   }, []);
+  useEffect(() => {
+    return global.ipc.on(CONSTS.PUBLIC_URL, (event, payload) => {
+      console.log('public url:', payload);
+    });
+  }, []);
   const render = () => {
     return (
       <ConfigProvider

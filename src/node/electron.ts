@@ -1,9 +1,10 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, webContents } from 'electron';
 import childProcess from 'child_process';
 
 import createWindow from './create-window';
 import { updateApplicationMenu } from './application-menu';
 import { enableContextMenu } from './context-menu';
+import CONSTS from '../constants';
 
 app.whenReady().then(() => {
   updateApplicationMenu();
@@ -36,5 +37,8 @@ subprocess.stdout.on('data', (data) => {
   if (matches) {
     const publicUrl = matches[1];
     console.log('public url:', publicUrl);
+    webContents.getAllWebContents().forEach((webContent) => {
+      webContent.send(CONSTS.PUBLIC_URL, publicUrl);
+    });
   }
 });
